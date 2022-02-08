@@ -10,6 +10,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { EmployeeComponent } from './modules/employee/employee.component';
 import { MaterialModule } from 'src/app/core/material.module';
 import { FormsModule } from '@angular/forms';
+import { AddEmployeeComponent } from './modules/employee/add-employee/add-employee.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     SidebarComponent,
     DashboardComponent,
     HomeComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    AddEmployeeComponent
   ],
   imports: [
     CommonModule,

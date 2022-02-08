@@ -1,0 +1,13 @@
+mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    button {
+        flex: 1;
+    }
+}
+
+.mat-dialog-title, mat-dialog-content {
+    text-align: center;
+}

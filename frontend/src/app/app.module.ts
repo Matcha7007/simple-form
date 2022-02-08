@@ -14,6 +14,8 @@ import { AlertComponent } from './dialogs/alert/alert.component';
 import { AlertService } from './core/services/alert.service';
 import { EmployeeService } from './core/services/employee.service';
 import { SignoutComponent } from './dialogs/signout/signout.component';
+import { ComfirmDialogComponent } from './dialogs/comfirm-dialog/comfirm-dialog.component';
+import { DialogService } from './core/services/dialog.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { SignoutComponent } from './dialogs/signout/signout.component';
     UserSigninComponent,
     UserSignupComponent,
     AlertComponent,
-    SignoutComponent
+    SignoutComponent,
+    ComfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { SignoutComponent } from './dialogs/signout/signout.component';
   providers: [
     AuthService,
     AlertService,
-    EmployeeService
+    EmployeeService,
+    DialogService
   ],
   bootstrap: [AppComponent]
 })

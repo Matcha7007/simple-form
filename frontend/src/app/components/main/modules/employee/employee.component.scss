@@ -1,0 +1,14 @@
+.mat-column-no, .mat-column-name, 
+.mat-column-address, 
+.mat-column-devision, .mat-column-phone,
+.mat-column-actions
+{
+    font-size: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: center;
+}
+
+.mat-column-no, .mat-column-actions
+{
+    max-width: 80px;
+}
