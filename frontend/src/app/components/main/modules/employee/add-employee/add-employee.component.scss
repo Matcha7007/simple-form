@@ -1,0 +1,28 @@
+mat-dialog-container {
+    padding: 0;
+}
+
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.controles-container {
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width {
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    flex: 1;
+}
+
+.button-row {
+    flex: 1;
+    display: flex;
+    justify-content: right;
+}

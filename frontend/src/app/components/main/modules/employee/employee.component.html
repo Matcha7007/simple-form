@@ -1,6 +1,6 @@
 <div class="search-div">
-    <button mat-raised-button>
-      <mat-icon>add</mat-icon>Create
+    <button mat-raised-button (click)="onAdd()">
+      <mat-icon>add</mat-icon>Add
     </button>
     <mat-form-field class="search-form-field" floatLabel="never">
       <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
@@ -32,13 +32,13 @@
             <mat-cell *matCellDef="let element">{{element.devision}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="phone">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>Contact</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Phone</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element.phone}}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let row">
-            <button mat-icon-button><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
             <button mat-icon-button color="warn" (click)="onDelete(row.id, row.name)"><mat-icon>delete_outline</mat-icon></button>
             </mat-cell>
         </ng-container>

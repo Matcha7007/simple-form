@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,6 +8,7 @@ import { AlertService } from 'src/app/core/services/alert.service';
 import { DialogService } from 'src/app/core/services/dialog.service';
 import { EmployeeService } from 'src/app/core/services/employee.service';
 import { Employee } from 'src/app/models/employee';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 @Component({
   selector: 'app-employee',
@@ -17,15 +20,20 @@ export class EmployeeComponent implements OnInit {
   constructor(
     private employee: EmployeeService,
     private alert: AlertService,
-    private dialog: DialogService
+    private dialog: DialogService,
+    private matDialog: MatDialog,
+    private fb: FormBuilder
   ) { }
 
+  devList: any[] = ['Finance','Accounting','IT Support'];
+  employeeForms: FormArray = this.fb.array([]);
   data: Employee[] = [];
   listData!: MatTableDataSource<Employee>;
   displayedColumns: string[] = ['no', 'name', 'address', 'devision', 'phone', 'actions'];
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   searchKey!: string;
+  emp:any;
 
   ngOnInit(): void {
     this.loadData();
@@ -64,6 +72,31 @@ export class EmployeeComponent implements OnInit {
           this.loadData();
         });
       };
+    });
+  }
+
+  onAdd() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    dialogConfig.position = {top: '5%', left:'25%'};
+    dialogConfig.data = { title: 'Add Employee', edit: false }
+    this.matDialog.open(AddEmployeeComponent, dialogConfig).afterClosed().subscribe(()=>{
+      this.loadData();
+    });
+  }
+
+  onEdit(row:any) {
+    this.employee.populateForm(row);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "50%";
+    dialogConfig.position = {top: '5%', left:'25%'};
+    dialogConfig.data = { title: 'Edit Employee', edit: true }
+    this.matDialog.open(AddEmployeeComponent, dialogConfig).afterClosed().subscribe(()=>{
+      this.loadData();
     });
   }
 }

@@ -1,1 +1,37 @@
-<p>add-employee works!</p>
+<mat-toolbar>
+    <span>{{data.title}}</span>
+    <button color="warn" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="serviceform" class="normal-form" (submit)="onSubmit()">
+    <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input type="text" matInput required formControlName="name">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input type="text" matInput required formControlName="address">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input type="text" matInput required formControlName="phone">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-select formControlName="devision" placeholder="Devision">
+                <mat-option>None</mat-option>
+                <ng-container *ngFor="let item of dev">
+                    <mat-option value="{{item}}">{{item}}</mat-option>
+                </ng-container>
+            </mat-select>
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" >Submit</button>
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+    </div>
+</form>
