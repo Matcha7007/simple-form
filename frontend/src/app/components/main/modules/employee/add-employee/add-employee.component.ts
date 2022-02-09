@@ -59,15 +59,19 @@ export class AddEmployeeComponent implements OnInit {
     if (this.empService.form.valid) {
       if (!this.data.edit)
       {
-        this.empService.addEmployee(this.empService.form.value).subscribe(res=>{console.log(res)});
+        this.empService.addEmployee(this.empService.form.value).subscribe(
+          () => { this.alert.alertSuccess('Added Successfully') }
+        );
       }
       else
       {
-        this.empService.updateEmployee(this.empService.form.value).subscribe(res=>{console.log(res)});
+        this.empService.updateEmployee(this.empService.form.value).subscribe(
+          () => { this.alert.alertSuccess('Updated Successfully') }
+        );
       }
       this.empService.form.reset();
       this.empService.initializeFormGroup();
-      this.alert.alertSuccess(':: Submitted successfully');
+      
       this.onClose();
       }
   }
