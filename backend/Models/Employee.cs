@@ -2,7 +2,7 @@ namespace backend.Models
 {
     public class Employee : BaseEntity
     {
-        public Employee(string name, string address, string devision, int phone)
+        public Employee(string name, string address, string devision, string phone)
         {
             this.Name = name;
             this.Address = address;
@@ -12,6 +12,6 @@ namespace backend.Models
         public string Name { get; set; }
         public string Address { get; set; }
         public string Devision { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
     }
 }
