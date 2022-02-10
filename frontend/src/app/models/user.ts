@@ -3,6 +3,7 @@ export interface UserForSignup {
     email?: string;
     password: string;
     phone?: number;
+    userRole?: number
 }
 
 export interface UserForSignin {

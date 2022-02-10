@@ -26,10 +26,8 @@ export class AuthService {
       role = 'Administrator';
     } else if ( id == '2') {
       role = 'Admin';
-    } else if ( id == '3') {
+    } else  {
       role = 'Employee';
-    } else {
-      role = 'Cashier'
     }
     return role;
   }
@@ -38,8 +36,10 @@ export class AuthService {
     return this.http.post(this.baseUrl + 'User/signin', user);
   }
 
-  registerUser(user: UserForSignup) {
+  signupUser(user: UserForSignup) {
     return this.http.post(this.baseUrl + 'User/signup', user);
   }
+
+
 
 }

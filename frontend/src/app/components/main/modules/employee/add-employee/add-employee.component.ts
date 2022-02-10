@@ -11,25 +11,9 @@ import { EmployeeService } from 'src/app/core/services/employee.service';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  // id?:string;
-  // name?:string;
-  // address?:string;
-  // phone?:number;
-  // devision?:number;
-
   @Input() emp:any;
   dev: any[] = ['Finance','Accounting','IT Support']
-  // formAddEdit = new FormGroup(
-  //   {
-  //     id: new FormControl(''),
-  //     name: new FormControl(''),
-  //     address: new FormControl(''),
-  //     phone: new FormControl(''),
-  //     devision: new FormControl()
-  //   }
-  // );
 
-  
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private empService: EmployeeService,
@@ -43,14 +27,9 @@ export class AddEmployeeComponent implements OnInit {
     console.log(this.empService.form.value);
   }
 
-  createForm(){
-
-  }
-
   onClear() {
     this.empService.form.reset();
     this.empService.initializeFormGroup();
-    this.onClose();
   }
 
   onSubmit() {
