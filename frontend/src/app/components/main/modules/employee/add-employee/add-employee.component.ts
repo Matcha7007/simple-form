@@ -48,8 +48,8 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   onClear() {
-    // this.empService.form.reset();
-    // this.empService.initializeFormGroup();
+    this.empService.form.reset();
+    this.empService.initializeFormGroup();
     this.onClose();
   }
 
@@ -77,8 +77,8 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   onClose() {
-    // this.empService.form.reset();
-    // this.empService.initializeFormGroup();
+    this.empService.form.reset();
+    this.empService.initializeFormGroup();
     this.dialogRef.close();
   }
 }
