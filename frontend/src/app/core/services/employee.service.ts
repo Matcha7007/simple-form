@@ -19,7 +19,7 @@ export class EmployeeService {
     id: new FormControl(0),
     name: new FormControl('', Validators.required),
     address: new FormControl('', Validators.required),
-    phone: new FormControl(0, [Validators.required, Validators.maxLength(5)]),
+    phone: new FormControl('', [Validators.required, Validators.maxLength(13)]),
     devision: new FormControl('')
   });
 
@@ -28,7 +28,7 @@ export class EmployeeService {
       id: 0,
       name: '',
       address: '',
-      phone: 0,
+      phone: '',
       devision: ''
     });
   }

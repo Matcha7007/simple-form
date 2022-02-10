@@ -3,5 +3,5 @@ export interface Employee {
     name?: string;
     address?: string;
     devision?: string;
-    phone?: number;
+    phone?: string;
 }
